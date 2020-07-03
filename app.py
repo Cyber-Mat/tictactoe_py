@@ -16,12 +16,10 @@ def display_board(board):
 def player_input():
     marker = input("Do you want to be 'X' or 'O': ").upper()
     if marker == 'X':
-        player_marker1 = 'X'
         return ['X', 'O']
     elif (marker.lower() == 'exit'):
         return 'exit'
     else:
-        player_marker1 = 'O'
         return ['0', 'X']
 
 def place_marker(board, marker, position):
@@ -32,24 +30,14 @@ def place_marker(board, marker, position):
 def win_check(board, mark):
     
     for _ in range(1,len(board)+1):
-        if board[1] == board[2] == board[3] == mark:
-            return True
-        elif board[1] == board[4] == board[7] == mark:
-            return True
-        elif board[1] == board[5] == board[9] == mark:
-            return True
-        elif board[2] == board[5] == board[8] == mark:
-            return True
-        elif board[3] == board[5] == board[7] == mark:
-            return True
-        elif board[3] == board[6] == board[9] == mark:
-            return True
-        elif board[4] == board[5] == board[6] == mark:
-            return True
-        elif board[7] == board[8] == board[9] == mark:
-            return True 
-    else:
-        return False
+        return (board[1] == board[2] == board[3] == mark 
+        	or board[1] == board[4] == board[7] == mark 
+        	or board[1] == board[5] == board[9] == mark 
+        	or board[2] == board[5] == board[8] == mark 
+        	or board[3] == board[5] == board[7] == mark 
+        	or board[3] == board[6] == board[9] == mark 
+        	or board[4] == board[5] == board[6] == mark 
+        	or board[7] == board[8] == board[9] == mark) 
 
 import random
 
